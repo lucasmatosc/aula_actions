@@ -21,7 +21,7 @@ jobs:
         - name: Build Project
           run: yarn build
         - name: Upload production-ready build files
-          uses: actions/upload-artifact@v2
+          uses: actions/upload-artifact@v3
           with:
             name: production-files
             path: ./build
@@ -30,10 +30,10 @@ jobs:
         name: Deploy
         needs: build
         runs-on: windows-latest
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         steps: 
         - name: Download artifact
-          uses: actions/download-artifact@v2
+          uses: actions/download-artifact@v3
           with:
             name: production-files
             path: ./build
