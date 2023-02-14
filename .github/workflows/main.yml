@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: windows-10
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [16.x]
@@ -28,7 +28,7 @@ jobs:
   deploy:
     name: Deploy
     needs: build
-    runs-on: windows-10
+    runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps: 
     - name: Download artifact
